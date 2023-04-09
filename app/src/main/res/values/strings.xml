@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">BasicState</string>
     <string name="contador_vasos">Has bebido %d vasos de agua</string>
+    <string name="suma">+</string>
 </resources>
