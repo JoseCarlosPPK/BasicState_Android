@@ -28,12 +28,19 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-
+/**
+ * UI de la aplicación
+ * @param modifier Permite cambiar el aspecto
+ */
+@Composable
+fun App(modifier: Modifier = Modifier) {
+    WaterCounter(modifier)
+}
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     BasicStateTheme {
-
+        App()
     }
 }
