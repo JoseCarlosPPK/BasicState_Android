@@ -39,7 +39,7 @@ fun App(modifier: Modifier = Modifier) {
 
 @Preview(showBackground = true)
 @Composable
-fun DefaultPreview() {
+private fun DefaultPreview() {
     BasicStateTheme {
         App()
     }
