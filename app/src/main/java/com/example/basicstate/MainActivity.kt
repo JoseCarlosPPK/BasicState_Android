@@ -7,11 +7,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.basicstate.ui.theme.BasicStateTheme
@@ -43,8 +40,19 @@ fun App(modifier: Modifier = Modifier) {
     
     Column(modifier = modifier) {
         WaterCounter(vasosBebidos, { ++vasosBebidos }, modifier)
-        ListaTareasSaludables()
+
+        val listaTareas = remember {
+            getListaTareasSaludables().toMutableStateList()
+        }
+        ListaTareasSaludables(list = listaTareas, oncloseTask = { task -> listaTareas.remove(task) })
     }
+}
+
+
+private fun getListaTareasSaludables() = List(30) { i-> TareaSaludable(
+    id = i,
+    label = "Tarea # $i"
+)
 }
 
 @Preview(showBackground = true)

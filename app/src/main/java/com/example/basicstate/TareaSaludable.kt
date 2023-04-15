@@ -30,14 +30,14 @@ data class TareaSaludable(
  * Función stateful
  */
 @Composable
-fun TareaSaludable(texto: String, modifier: Modifier = Modifier) {
+fun TareaSaludable(texto: String, onClose: () -> Unit, modifier: Modifier = Modifier) {
     var checkedState by rememberSaveable {
         mutableStateOf(false)
     }
 
     TareaSaludable(
         texto = texto,
-        onClose = { /*TODO*/ },
+        onClose = onClose,
         checked = checkedState,
         onCheckedChange = { newValue -> checkedState = newValue },
         modifier = modifier
