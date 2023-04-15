@@ -15,6 +15,11 @@ class ViewModel: ViewModel() {
     fun remove(item: TareaSaludable) {
         _tasks.remove(item)
     }
+
+
+    fun cambiarEstadoTarea(item: TareaSaludable, checked: Boolean) {
+        _tasks.find { it.id == item.id }?.let { task -> task.checked = checked }
+    }
 }
 
 

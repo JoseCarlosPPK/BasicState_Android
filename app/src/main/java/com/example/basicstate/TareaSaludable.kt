@@ -9,10 +9,6 @@ import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -22,27 +18,11 @@ import androidx.compose.ui.unit.dp
 
 data class TareaSaludable(
     val id: Int,
-    val label: String
+    val label: String,
+    var checked: Boolean = false
 )
 
 
-/**
- * Función stateful
- */
-@Composable
-fun TareaSaludable(texto: String, onClose: () -> Unit, modifier: Modifier = Modifier) {
-    var checkedState by rememberSaveable {
-        mutableStateOf(false)
-    }
-
-    TareaSaludable(
-        texto = texto,
-        onClose = onClose,
-        checked = checkedState,
-        onCheckedChange = { newValue -> checkedState = newValue },
-        modifier = modifier
-    )
-}
 
 @Composable
 fun TareaSaludable(

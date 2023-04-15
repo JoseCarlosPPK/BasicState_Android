@@ -10,14 +10,21 @@ import androidx.compose.ui.Modifier
 fun ListaTareasSaludables(
     list: List<TareaSaludable>,
     oncloseTask: (TareaSaludable) -> Unit,
+    onCheckedTask: (TareaSaludable, Boolean) -> Unit,
     modifier: Modifier = Modifier
 ) {
     LazyColumn(modifier = modifier) {
         items(
             items = list,
             key = { task -> task.id }
-        ) { task ->
-            TareaSaludable(texto = task.label, onClose = { oncloseTask(task) })
+        ) {
+            task -> TareaSaludable(
+            texto = task.label,
+            onClose = { oncloseTask(task) },
+            checked = task.checked,
+            onCheckedChange = {checked -> onCheckedTask(task, checked)}
+        )
         }
+
     }
 }

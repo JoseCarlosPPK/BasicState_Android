@@ -47,7 +47,10 @@ fun App(
     
     Column(modifier = modifier) {
         WaterCounter(vasosBebidos, { ++vasosBebidos }, modifier)
-        ListaTareasSaludables(list = viewModel.tasks, oncloseTask = { task -> viewModel.remove(task) })
+        ListaTareasSaludables(list = viewModel.tasks, oncloseTask = { task -> viewModel.remove(task) },
+        onCheckedTask = {
+            task, checked -> viewModel.cambiarEstadoTarea(task, checked)
+        })
     }
 }
 
