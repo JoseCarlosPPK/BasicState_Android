@@ -16,6 +16,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 
+data class TareaSaludable(
+    val id: Int,
+    val label: String
+)
+
+
 /**
  * Función stateful
  */
