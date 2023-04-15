@@ -8,18 +8,20 @@ El proyecto se ha realizado en **Android Studio**. Para usar este proyecto puede
 * Clonar este repositorio de git y abrirlo con el IDE
 * Abrir el IDE e importar un nuevo proyecto desde VCS
 
-## Rama remember_mutable_compose
-El estado de la app se ha guardado usando:
-* remember y rememberSaveable
-* mutableStateOf y toMutableStateList
+## Rama viewmodel
+El estado de la app se ha guardado creando una clase propia ViewModel. Esta guarda la lista de 
+tareas, proporciona un método de consulta (solo lectura) y un método para borrar una tarea.
 
-Con rememberSabeable no podemos guardar estruturas de datos complejas, como listas.
-Por tanto donde usamos remember para la lista de tareas, vamos a tener un comportamiento no deseado:
-Las tareas se borran correctamente pero cuando se produce un cambio de configuración (cambio de orientción
-de la pantalla, cambio de idioma, modo oscuro/claro...) las tareas borradas vuelven a aparecer.
+Por tanto el ViewModel guarda el UI State y lo modifica. Pasa el UI State a las funciones
+composables.
 
-Para realizar correctamente la app se va a diseñar e implementar un **ViewModel**, un componente que
-indica al UI State cómo actuar ante diferentes eventos. Para ello vaya a la rama **viewmodel**.
+### Dependencias para el ViewModel
+Se añade al fichero build.gradle de app:
+```
+implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1"
+```
+
+
 
 ## Versión Android
 * API 31 para sdk 12
