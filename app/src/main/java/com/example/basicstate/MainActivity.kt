@@ -49,12 +49,6 @@ fun App(modifier: Modifier = Modifier) {
 }
 
 
-private fun getListaTareasSaludables() = List(30) { i-> TareaSaludable(
-    id = i,
-    label = "Tarea # $i"
-)
-}
-
 @Preview(showBackground = true)
 @Composable
 private fun DefaultPreview() {
