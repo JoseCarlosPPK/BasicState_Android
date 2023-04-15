@@ -8,7 +8,11 @@ import androidx.compose.material.IconButton
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -27,7 +31,7 @@ data class TareaSaludable(
  */
 @Composable
 fun TareaSaludable(texto: String, modifier: Modifier = Modifier) {
-    var checkedState by remember {
+    var checkedState by rememberSaveable {
         mutableStateOf(false)
     }
 
