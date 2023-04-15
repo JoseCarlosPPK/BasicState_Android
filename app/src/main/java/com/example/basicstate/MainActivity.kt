@@ -7,10 +7,14 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.basicstate.ui.theme.BasicStateTheme
 
 class MainActivity : ComponentActivity() {
@@ -35,16 +39,15 @@ class MainActivity : ComponentActivity() {
  * @param modifier Permite cambiar el aspecto
  */
 @Composable
-fun App(modifier: Modifier = Modifier) {
+fun App(
+    modifier: Modifier = Modifier,
+    viewModel: ViewModel = viewModel()
+) {
     var vasosBebidos by rememberSaveable { mutableStateOf(0) }
     
     Column(modifier = modifier) {
         WaterCounter(vasosBebidos, { ++vasosBebidos }, modifier)
-
-        val listaTareas = remember {
-            getListaTareasSaludables().toMutableStateList()
-        }
-        ListaTareasSaludables(list = listaTareas, oncloseTask = { task -> listaTareas.remove(task) })
+        ListaTareasSaludables(list = viewModel.tasks, oncloseTask = { task -> viewModel.remove(task) })
     }
 }
 
