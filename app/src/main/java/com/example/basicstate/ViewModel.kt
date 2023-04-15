@@ -1,8 +1,10 @@
 package com.example.basicstate
 
 import androidx.compose.runtime.toMutableStateList
+import androidx.lifecycle.ViewModel
 
-class ViewModel {
+
+class ViewModel: ViewModel() {
     private val _tasks =  getListaTareasSaludables().toMutableStateList()
 
     // Desde fuera de la clase solo se puede consultar la lista
