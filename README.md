@@ -9,8 +9,12 @@ El proyecto se ha realizado en **Android Studio**. Para usar este proyecto puede
 * Abrir el IDE e importar un nuevo proyecto desde VCS
 
 ## Rama viewmodel
-El estado de la app se ha guardado creando una clase propia ViewModel. Esta guarda la lista de 
-tareas, proporciona un método de consulta (solo lectura) y un método para borrar una tarea.
+El estado de la app se ha guardado creando una clase propia ViewModel. Esta guarda:
+* La lista de tareas
+  * Proporciona un método de consulta (solo lectura) y un método para borrar una tarea.
+* El estado (checked) de las tareas
+  * Método para cambiar el estado
+  * El estado es una variable del data class de tipo MutableState<Boolean> para que se actualice la UI
 
 Por tanto el ViewModel guarda el UI State y lo modifica. Pasa el UI State a las funciones
 composables.
@@ -20,7 +24,6 @@ Se añade al fichero build.gradle de app:
 ```
 implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1"
 ```
-
 
 
 ## Versión Android
