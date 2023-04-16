@@ -18,7 +18,7 @@ class ViewModel: ViewModel() {
 
 
     fun cambiarEstadoTarea(item: TareaSaludable, checked: Boolean) {
-        _tasks.find { it.id == item.id }?.let { task -> task.checked = checked }
+        _tasks.find { it.id == item.id }?.let { task -> task.checked.value = checked }
     }
 }
 

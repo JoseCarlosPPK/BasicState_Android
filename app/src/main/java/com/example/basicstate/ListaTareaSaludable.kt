@@ -21,7 +21,7 @@ fun ListaTareasSaludables(
             task -> TareaSaludable(
             texto = task.label,
             onClose = { oncloseTask(task) },
-            checked = task.checked,
+            checked = task.checked.value,
             onCheckedChange = {checked -> onCheckedTask(task, checked)}
         )
         }
