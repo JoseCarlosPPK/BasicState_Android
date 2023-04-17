@@ -54,7 +54,9 @@ fun App(
     }
 }
 
-
+/**
+ * Previsualización
+ */
 @Preview(showBackground = true)
 @Composable
 private fun DefaultPreview() {
