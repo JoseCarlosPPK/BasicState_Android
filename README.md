@@ -13,7 +13,7 @@ El estado de la app se ha guardado usando:
 * remember y rememberSaveable
 * mutableStateOf y toMutableStateList
 
-Con rememberSabeable no podemos guardar estruturas de datos complejas, como listas.
+Con rememberSaveable no podemos guardar estruturas de datos complejas, como listas.
 Por tanto donde usamos remember para la lista de tareas, vamos a tener un comportamiento no deseado:
 Las tareas se borran correctamente pero cuando se produce un cambio de configuración (cambio de orientción
 de la pantalla, cambio de idioma, modo oscuro/claro...) las tareas borradas vuelven a aparecer.
